@@ -40,14 +40,24 @@ function playRound(playerSelection, computerSelection) {
 
 
 function playGame() { 
-    for (let i = 1; i <= 5; i++) {
-        const playerSelection = prompt("Make a selection. Eg. 'Rock', 'Paper' or 'Scissors'");
-        let computerSelection = getComputerChoice();
+    let i = 1;
 
-        console.log(computerSelection);
+    while (i <= 5) {
+        let playerSelection = prompt("Make a selection. Eg. 'Rock', 'Paper' or 'Scissors'");
+        let computerSelection = getComputerChoice().toLowerCase();
+
+        playerSelection = playerSelection.toLowerCase();
 
         playRound(playerSelection, computerSelection);
+
+        if (playerSelection === 'rock' || playerSelection === 'paper' || playerSelection === 'scissors') {
+            i++;
+        } else {
+            console.log("\nInvalid selection. Please select 'ROCK', 'PAPER', or 'SCISSORS'\n");
+        }
     }
+
+    console.log('\n');
 
     if (playerScore > compScore) {
         console.log("YOU WON THE GAME. SCORES: " + playerScore + "-" + compScore);
@@ -58,6 +68,5 @@ function playGame() {
         console.log("GAME DRAW. SCORES: " + playerScore + "-" + compScore);
     }
 }
-
 
 playGame();
