@@ -37,3 +37,26 @@ function playRound(playerSelection, computerSelection) {
         console.log("Game Draw");
     }
 }
+
+
+function playGame() { 
+    for (let i = 1; i <= 5; i++) {
+        const playerSelection = prompt("Make a selection. Eg. 'Rock', 'Paper' or 'Scissors'");
+        let computerSelection = getComputerChoice();
+
+        console.log(computerSelection);
+
+        playRound(playerSelection, computerSelection);
+    }
+
+    if (playerScore > compScore) {
+        console.log("YOU WON THE GAME. SCORES: " + playerScore + "-" + compScore);
+    } else if (playerScore < compScore) {
+        console.log("YOU LOST THE GAME. SCORES: " + playerScore + "-" + compScore);
+        
+    } else {
+        console.log("GAME DRAW. SCORES: " + playerScore + "-" + compScore);
+    }
+}
+
+
