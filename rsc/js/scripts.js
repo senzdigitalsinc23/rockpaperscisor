@@ -11,6 +11,8 @@ let compScore = playerScore = 0;
 
 function playRound(playerSelection, computerSelection) {
 
+    console.log(playerSelection + " " + computerSelection);
+
     computerSelection = computerSelection.toLowerCase();    
 
     if (playerSelection === 'rock' && computerSelection === 'scissors') {
@@ -40,22 +42,20 @@ function playRound(playerSelection, computerSelection) {
 
 
 function playGame() { 
-    let i = 1;
+    
+    let playerSelection = "Rock"
+    let computerSelection = getComputerChoice().toLowerCase();
 
-    while (i <= 5) {
-        let playerSelection = prompt("Make a selection. Eg. 'Rock', 'Paper' or 'Scissors'");
-        let computerSelection = getComputerChoice().toLowerCase();
+    playerSelection = playerSelection.toLowerCase();
 
-        playerSelection = playerSelection.toLowerCase();
+    playRound(playerSelection, computerSelection);
 
-        playRound(playerSelection, computerSelection);
-
-        if (playerSelection === 'rock' || playerSelection === 'paper' || playerSelection === 'scissors') {
-            i++;
-        } else {
-            console.log("\nInvalid selection. Please select 'ROCK', 'PAPER', or 'SCISSORS'\n");
-        }
+    if (playerSelection === 'rock' || playerSelection === 'paper' || playerSelection === 'scissors') {
+        i++;
+    } else {
+        console.log("\nInvalid selection. Please select 'ROCK', 'PAPER', or 'SCISSORS'\n");
     }
+    
 
     console.log('\n');
 
@@ -69,4 +69,19 @@ function playGame() {
     }
 }
 
-playGame();
+
+const allSelections = document.querySelectorAll('button');
+
+allSelections.forEach((button) => {
+    button.addEventListener('click', () => {
+        let playerSelection = button.textContent;
+        let computerSelection = getComputerChoice().toLowerCase();
+        playRound(playerSelection, computerSelection)
+    });
+})
+
+
+
+
+
+

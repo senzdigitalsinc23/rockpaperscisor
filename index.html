@@ -5,33 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissor V1.0</title>
 
-    <style>
-        .container {
-            display: flex;
-            justify-content: center; 
-        }
-
-        .items {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            width: 400px;
-            background-color: burlywood;
-            height: 100vh;
-            
-        }
-        h1{
-            font-size: 24px;
-
-        }
-
-        p {
-            width: 300px;
-            color: rgb(57, 29, 57);
-            font-weight: 600;
-        }
-    </style>
+   <link rel="stylesheet" href="./rsc/css/styles.css">
 </head>
 <body>
     <div class="container">
@@ -42,7 +16,32 @@
 
                 Graphical update will be deployed soon.
             </P>       
+
+            <h3 style="margin-bottom: 0;">Select an option Below to make a choice</h3>
+
+            <div class="options">
+                <button class="rock">Rock</button>
+                <button class="paper">Paper</button>
+                <button class="scissors">Scissors</button>
+            </div>
+
+            <div class="results">
+                <div class="message">You Won, Rock Beats Scissors</div>
+                <div class="players">
+                    <div class="player" >Player</div>
+                    <div class="computer">Computer</div>
+                </div>
+                <div class="scores">
+                    <div class="player">0</div> 
+                    <div class="colon">:</div>
+                    <div class="computer">0</div>
+                </div>
+                <div class="final-result">YOU WON THE GAME</div>
+            </div>
+            
         </div>
+
+        
 
     </div>
 

@@ -1,0 +1,87 @@
+.container {
+    display: flex;
+    justify-content: center; 
+}
+
+.items {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    background-color: burlywood;
+    height: 100vh;
+    border-radius: 20px;
+    
+}
+h1{
+    font-size: 24px;
+
+}
+
+p {
+    width: 300px;
+    color: rgb(57, 29, 57);
+    font-weight: 600;
+}
+
+button {
+    width: 100px;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 10px 0 5px 0;
+    cursor: pointer;
+    color: white;
+    font-weight: 900;
+}
+
+.rock {
+    background-color: brown;
+}
+
+.paper {
+    background-color: blueviolet;
+}
+
+.scissors {
+    background-color: blue;
+}
+
+.message {
+    color: blue;
+    font-size: 1.4em;
+    padding: 10px;
+}
+
+.scores {
+    display: flex;
+    justify-content: center;
+    font-size: 5em;
+    font-weight: 900;
+    column-gap: 50px;
+    border: 2px solid white;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.players {
+    display: flex;
+    justify-content: center;
+    column-gap: 100px;
+    font-weight: 900;
+    color: brown;
+    background-color: white;
+    padding: 10px;
+    margin-bottom: 0;
+    font-size: 1.8em;
+    border-radius: 20px;
+}
+
+.final-result {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    font-size: 2em;
+    font-weight: 900;
+    color: brown;
+}
