@@ -8,73 +8,77 @@ function getComputerChoice() {
 }
 
 let compScore = playerScore = 0;
+let gameMessage = document.querySelector(".game-message");
+let player = document.querySelector(".player-score");
+let computer = document.querySelector(".computer-score");
+let reset = document.querySelector(".reset");
+
+reset.setAttribute("style", "display:none");
+
 
 function playRound(playerSelection, computerSelection) {
 
-    console.log(playerSelection + " " + computerSelection);
-
-    computerSelection = computerSelection.toLowerCase();    
-
     if (playerSelection === 'rock' && computerSelection === 'scissors') {
         playerScore += 1;
-        console.log('You Won! Rock beats Scissors')
+        gameMessage.textContent = 'You Won! Rock beats Scissors';
+
+        player.textContent = playerScore
     }
     else if (playerSelection === 'scissors' && computerSelection === 'paper') {
         playerScore += 1;
-        console.log('You Won! Scissors beat Paper')
+        gameMessage.textContent = 'You Won! Scissors beat Paper';
+
+        player.textContent = playerScore
     } else if (playerSelection === 'paper' && computerSelection === 'rock') {
         playerScore += 1;
-        console.log('You Won! Paper beats Rock')
+        gameMessage.textContent = 'You Won! Paper beats Rock';
+
+        player.textContent = playerScore
+
     } else if (computerSelection === 'rock' && playerSelection === 'scissors') {
         compScore += 1;
-        console.log('You Lose! Rock beats Scissors')
+        gameMessage.textContent = 'You Lose! Rock beats Scissors';
+
+        computer.textContent = compScore
     }
     else if (computerSelection === 'scissors' && playerSelection === 'paper') {
         compScore += 1;
-        console.log('You Lose! Scissors beats Paper')
+        gameMessage.textContent = 'You Lose! Scissors beats Paper';
+
+        computer.textContent = compScore
     } else if (computerSelection === 'paper' && playerSelection === 'rock') {
         compScore += 1;
-        console.log('You Lose! Paper beats Rock')
+        gameMessage.textContent = 'You Lose! Paper beats Rock'
+
+        computer.textContent = compScore
     }else if (playerSelection === computerSelection) {
-        console.log("Game Draw");
+        gameMessage.textContent = "Game Draw";
     }
-}
 
-
-function playGame() { 
-    
-    let playerSelection = "Rock"
-    let computerSelection = getComputerChoice().toLowerCase();
-
-    playerSelection = playerSelection.toLowerCase();
-
-    playRound(playerSelection, computerSelection);
-
-    if (playerSelection === 'rock' || playerSelection === 'paper' || playerSelection === 'scissors') {
-        i++;
-    } else {
-        console.log("\nInvalid selection. Please select 'ROCK', 'PAPER', or 'SCISSORS'\n");
-    }
-    
-
-    console.log('\n');
-
-    if (playerScore > compScore) {
-        console.log("YOU WON THE GAME. SCORES: " + playerScore + "-" + compScore);
-    } else if (playerScore < compScore) {
-        console.log("YOU LOST THE GAME. SCORES: " + playerScore + "-" + compScore);
+    if (playerScore === 5) {
+        gameMessage.setAttribute('style', "color: green");
+        gameMessage.textContent = "YOU WON THE GAME";
         
-    } else {
-        console.log("GAME DRAW. SCORES: " + playerScore + "-" + compScore);
+        reset.setAttribute("style", "display:block;");
+        document.querySelector(".options").setAttribute('style', "display:none; transition: all 0.3s ease-in-out");
+    } else if (compScore === 5) {
+        gameMessage.setAttribute('style', "color: darkred;");
+        gameMessage.textContent = "YOU LOST THE GAME";
+
+        reset.setAttribute("style", "display:block;");
+        document.querySelector(".options").setAttribute('style', "display:none; transition: all 0.3s ease-in-out");
     }
+
+    
 }
+
 
 
 const allSelections = document.querySelectorAll('button');
 
 allSelections.forEach((button) => {
     button.addEventListener('click', () => {
-        let playerSelection = button.textContent;
+        let playerSelection = (button.textContent).toLowerCase();
         let computerSelection = getComputerChoice().toLowerCase();
         playRound(playerSelection, computerSelection)
     });
